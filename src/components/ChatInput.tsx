@@ -1,21 +1,36 @@
 import { useState, type ChangeEvent } from "react";
 
-export const ChatInput = () => {
-  const [inputText, setInputText] = useState('');
+type Props = {
+  sendMessage: (msg: string) => void;
+};
 
-  const saveInputText = (event: ChangeEvent<HTMLInputElement, HTMLInputElement> ) => {
-    setInputText(event.target.value)
+export const ChatInput = ({ sendMessage }: Props) => {
+  const [inputText, setInputText] = useState("");
+
+  const saveInputText = (
+    event: ChangeEvent<HTMLInputElement, HTMLInputElement>,
+  ) => {
+    setInputText(event.target.value);
+  };
+
+  const sendMessage2 = () => {
+    if (inputText.trim().length === 0) {
+      return
+    }
+
+    sendMessage(inputText)
   }
 
-  const sendMessage = () => {
-    console.log(inputText)
-  }
   return (
     <>
-      <input placeholder="Send a message to Chatbot" size={30} onChange={saveInputText} />
+      <input
+        placeholder="Send a message to Chatbot"
+        size={30}
+        value={inputText}
+        onChange={saveInputText}
+      />
 
-      <button onClick={sendMessage}>Send</button>
+      <button onClick={sendMessage2}>Send</button>
     </>
   );
 };
-
