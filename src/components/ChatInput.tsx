@@ -1,4 +1,5 @@
 import { useState, type ChangeEvent } from "react";
+import { Chatbot } from "supersimpledev";
 
 type Props = {
   sendMessage: (msg: string) => void;
@@ -19,6 +20,11 @@ export const ChatInput = ({ sendMessage }: Props) => {
     }
 
     sendMessage(inputText)
+  
+    const response = Chatbot.getResponse(inputText)
+    console.log(response)
+
+    setInputText('')
   }
 
   return (
