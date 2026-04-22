@@ -31,13 +31,18 @@ const initChatMessages: ChatMessageType[] = [
 export const App = () => {
   const [chatMessages, setChatMessages] = useState(initChatMessages);
 
-  const sendMessage = (msg: string) => {
+  const sendMessage = (userMessage: string, robotResponse: string) => {
     const newChatMessages = [
       ...chatMessages,
       {
-        message: msg,
+        message: userMessage,
         sender: "user",
         id: new Date().getTime(),
+      },
+            {
+        message: robotResponse,
+        sender: "robot",
+        id: new Date().getTime() +1,
       },
     ]
 

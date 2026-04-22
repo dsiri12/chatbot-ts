@@ -2,7 +2,7 @@ import { useState, type ChangeEvent } from "react";
 import { Chatbot } from "supersimpledev";
 
 type Props = {
-  sendMessage: (msg: string) => void;
+  sendMessage: (userMessage: string, robotResponse: string) => void;
 };
 
 export const ChatInput = ({ sendMessage }: Props) => {
@@ -19,10 +19,9 @@ export const ChatInput = ({ sendMessage }: Props) => {
       return
     }
 
-    sendMessage(inputText)
-  
     const response = Chatbot.getResponse(inputText)
     console.log(response)
+    sendMessage(inputText, response)
 
     setInputText('')
   }
