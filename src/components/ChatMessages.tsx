@@ -8,11 +8,11 @@ type Props = {
 export const ChatMessages = ({ chatMessages }: Props) => {
   return (
     <>
-      {chatMessages.map((item) => (
+      {chatMessages.map(({ id, message, sender }) => (
         <ChatMessage
-          key={item.id}
-          message={item.message}
-          sender={item.sender}
+          key={id}
+          message={message}
+          sender={sender}
         />
       ))}
     </>
