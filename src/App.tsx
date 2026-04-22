@@ -1,5 +1,3 @@
-
-
 import { useState } from "react";
 import type { ChatMessageType } from "./types/ChatMessageType";
 import { ChatInput } from "./components/ChatInput";
@@ -39,12 +37,12 @@ export const App = () => {
         sender: "user",
         id: new Date().getTime(),
       },
-            {
+      {
         message: robotResponse,
         sender: "robot",
-        id: new Date().getTime() +1,
+        id: new Date().getTime() + 1,
       },
-    ]
+    ];
 
     setChatMessages(newChatMessages);
   };

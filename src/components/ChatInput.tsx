@@ -14,7 +14,7 @@ export const ChatInput = ({ sendMessage }: Props) => {
     setInputText(event.target.value);
   };
 
-  const sendMessage2 = () => {
+  const handleOnClick = () => {
     if (inputText.trim().length === 0) {
       return
     }
@@ -35,7 +35,7 @@ export const ChatInput = ({ sendMessage }: Props) => {
         onChange={saveInputText}
       />
 
-      <button onClick={sendMessage2}>Send</button>
+      <button onClick={handleOnClick}>Send</button>
     </>
   );
 };
